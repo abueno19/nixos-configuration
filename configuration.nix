@@ -193,7 +193,7 @@
 
   services.blueman.enable = true;
   services.printing.enable = true;
-  services.openssh.enable = true;
+  services.openssh.enable = false;
   services.power-profiles-daemon.enable = true;
 
   # Nix settings
@@ -254,7 +254,14 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  security.tpm2.enable = true;
 
+  boot.bootspec.enable = true;
+
+  services.sbctl = {
+    enable = true;
+  };
+  
   # Kernel CachyOS (necesita el canal cachyos añadido)
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
