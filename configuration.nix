@@ -10,6 +10,9 @@
     [
       ./hardware-configuration.nix
       <home-manager/nixos>
+            (builtins.fetchTarball {
+        url = "https://github.com/nix-community/lanzaboote/archive/master.tar.gz";
+      } + "/nix/module.nix")
     ];
 
   home-manager.backupFileExtension = "backup";
@@ -60,6 +63,7 @@
     power-profiles-daemon
     jdk8
     steam-run
+    sbctl
   ];
 
   environment.pathsToLink = [ "/share/gsettings-schemas" ];
@@ -251,17 +255,16 @@
     ];
   };
 
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
+  # Bootloader con Secure Boot via lanzaboote
+  boot.loader.systemd-boot.enable = lib.mkForce false; # lanzaboote lo reemplaza
   boot.loader.efi.canTouchEfiVariables = true;
-  security.tpm2.enable = true;
-
   boot.bootspec.enable = true;
 
-  services.sbctl = {
+  boot.lanzaboote = {
     enable = true;
+    pkiBundle = "/etc/secureboot";
   };
-  
+
   # Kernel CachyOS (necesita el canal cachyos añadido)
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
