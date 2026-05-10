@@ -256,7 +256,7 @@
   };
 
   # Bootloader con Secure Boot via lanzaboote
-  boot.loader.systemd-boot.enable = lib.mkForce false; # lanzaboote lo reemplaza
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.bootspec.enable = true;
 
