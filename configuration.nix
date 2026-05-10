@@ -260,10 +260,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.bootspec.enable = true;
 
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/etc/secureboot";
-  };
+  # boot.lanzaboote = {
+  #   enable = true;
+  #   pkiBundle = "/etc/secureboot";
+  # };
 
   # Kernel CachyOS (necesita el canal cachyos añadido)
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
