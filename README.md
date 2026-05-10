@@ -1,5 +1,3 @@
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/ilyamiro)
-
 ## Do NOT install it on NixOS. This config has a lot adapting to do, until I introduce flakes.
 ## Arch installer now available for everyone. Just run this: 
 
