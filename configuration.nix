@@ -10,9 +10,9 @@
     [
       ./hardware-configuration.nix
       <home-manager/nixos>
-            (builtins.fetchTarball {
-        url = "https://github.com/nix-community/lanzaboote/archive/master.tar.gz";
-      } + "/nix/module.nix")
+      #       (builtins.fetchTarball {
+      #   url = "https://github.com/nix-community/lanzaboote/archive/master.tar.gz";
+      # } + "/nix/module.nix")
     ];
 
   home-manager.backupFileExtension = "backup";
@@ -64,6 +64,7 @@
     jdk8
     steam-run
     sbctl
+    discord
   ];
 
   environment.pathsToLink = [ "/share/gsettings-schemas" ];
